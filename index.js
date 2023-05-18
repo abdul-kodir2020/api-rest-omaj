@@ -16,3 +16,5 @@ app.use('/api/produit',require("./routes/produit.route"))
 app.listen(process.env.PORT_SERVER || 5000,()=>{
     console.log("Serveur démarré")
 })
+
+module.exports = app

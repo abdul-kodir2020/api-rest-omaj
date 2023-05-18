@@ -47,9 +47,11 @@ const Produit = {
                 produits = await pool.query(query, [parseFloat(tag.value)])
                 return produits.rows
 
-            }else if (tag.filtre.toLowerCase() === 'quantite') {//par quantite 0 ou 1
+            }else if (tag.filtre.toLowerCase() === 'stock') {//par quantite 0 ou 1
 
-                query = 'SELECT * FROM produit WHERE quantite = $1'
+                query = 'SELECT * FROM produit WHERE quantite = 1'
+                produits = await pool.query(query)
+                return produits.rows
 
             }else if (tag.filtre.toLowerCase() === 'status') {//par status
 
