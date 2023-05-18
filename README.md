@@ -28,12 +28,13 @@ Environnement technique : Nodejs, Express, postgresql, postman
 1. npm install
 2. Ajoutez un fichier .env a la racine du dossier et ajoutez y ce code:
       
-    PORT_SERVER = 5000
-    DB_NAME = apirestdatabaseomaj
-    DB_USER = NOM_UTILISATEUR_POSTGRESQL (remplacez le par votre nom d'utilisateur postgresql)
-    DB_PASSWORD = MOT_DE_PASSE_POSTGRESQL (remplacez le par votre mot de passe postgresql)
-    BD_HOST = localhost
-    DB_PORT = 5432     
+      
+       PORT_SERVER = 5000
+        DB_NAME = apirestdatabaseomaj
+        DB_USER = NOM_UTILISATEUR_POSTGRESQL (remplacez le par votre nom d'utilisateur postgresql)
+        DB_PASSWORD = MOT_DE_PASSE_POSTGRESQL (remplacez le par votre mot de passe postgresql)
+        BD_HOST = localhost
+        DB_PORT = 5432     
       
 3. npm run db-init : pour la création de la base de donnée postgresql, des tables et des données catégorie et produit
 4. npm run start : pour démarré le serveur local
