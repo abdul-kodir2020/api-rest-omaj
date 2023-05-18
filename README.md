@@ -108,4 +108,6 @@ Supprimer un produit :
       http://localhost:5000/api/produit/delete/:id
       
       
-      
+# Bonus
+
+J'ai ecris un fichier de test unitaire avec les packages de test mosha chai supertest. Le fichier : /test/api.test.js 
