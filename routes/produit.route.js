@@ -1,7 +1,15 @@
+const { createProduit, getAllProduit, deleteProduit, getOneProduit, updateProduit } = require("../controllers/produit.controller")
+
 const router = require("express").Router()
 
-router.get('/',async(req,res)=>{
-    res.end("hello produit")
-})
+router.post('/create', createProduit)
+
+router.get('/produits/', getAllProduit)
+
+router.get('/produit/:id', getOneProduit)
+
+router.put('/update/:id', updateProduit)
+
+router.delete('/delete/:id', deleteProduit)
 
 module.exports = router

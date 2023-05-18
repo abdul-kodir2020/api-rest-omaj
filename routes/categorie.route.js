@@ -12,8 +12,4 @@ router.put('/update/:id', updateCategorie)
 
 router.delete('/delete/:id', deleteCategorie)
 
-router.get('/',async(req,res)=>{
-    res.end("hello categorie")
-})
-
 module.exports = router

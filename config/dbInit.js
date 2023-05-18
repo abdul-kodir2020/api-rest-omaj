@@ -8,7 +8,7 @@ const dotenv = require("dotenv");
 const { pool, poolForCreate } = require("./db");
 const Categorie = require("../models/categorie.model");
 const Produit = require("../models/produit.model");
-const listeProduits = require("./listeProduits");
+const listeProduits = require("./listeProduits");//fichier contenant une liste de produits
 dotenv.config()
 
 
@@ -19,7 +19,7 @@ async function createDatabase() {
       await client.query(`DROP DATABASE IF EXISTS ${process.env.DB_NAME}`);
       await client.query(`CREATE DATABASE ${process.env.DB_NAME}`).then(async()=>{
         client.release();
-        client = await pool.connect() 
+        client = await pool.connect()// conection à la base de données
       });
 
       //table categorie
@@ -35,7 +35,7 @@ async function createDatabase() {
         marque VARCHAR(100) NOT NULL,
         taille VARCHAR(50),
         quantite INT DEFAULT 1,
-        prix VARCHAR(5),
+        prix FLOAT,
         status VARCHAR(20) CHECK (status IN ('accepte', 'en attente')),
         categorie_id INT NOT NULL,
         FOREIGN KEY (categorie_id) REFERENCES categorie (id) ON DELETE CASCADE ON UPDATE CASCADE
@@ -49,6 +49,7 @@ async function createDatabase() {
       for (const produit of listeProduits) {
         await Produit.create(produit.libelle,produit.marque,produit.taille,produit.quantite,produit.prix,produit.status,produit.Categorie_id)
       }
+
       console.log('Base de données créée avec succès.');
     } catch (error) {
       console.error('Erreur lors de la création de la base de données :', error);

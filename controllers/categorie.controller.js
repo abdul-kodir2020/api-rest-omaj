@@ -2,7 +2,7 @@ const Categorie = require("../models/categorie.model")
 
 module.exports.createCategorie = async (req,res)=>{
     //validation du nom
-    if(!req.body.nom) return res.status(400).json("nom de la categorie non valide")
+    if(!req.body.nom || typeof req.body.nom !== "string") return res.status(400).json("nom de la categorie non valide")
 
     //verification de la categorie
     const categorie = await Categorie.getOne(req.body.nom)
@@ -25,16 +25,12 @@ module.exports.getAllCategorie = async(req, res) => {
     } catch (error) {
         res.status(400).json(error)
     }
-    
 }
 
 module.exports.getOneCategorie = async(req,res)=>{
-    //validation de l'id
-    if(!req.params.id) return res.status(400).json("id non valide")
-
     try {
        const categorie = await Categorie.getOne(parseInt(req.params.id))
-       console.log(categorie)
+       if(!categorie) return res.status(400).json("cette categorie n'existe pas")
        res.status(200).send(categorie)
     } catch (error) {
         res.status(400).json(error)
@@ -43,11 +39,11 @@ module.exports.getOneCategorie = async(req,res)=>{
 
 module.exports.updateCategorie = async(req, res)=>{
     //validation du nom
-    if(!req.body.nom) return res.status(400).json("nom de la categorie non valide")
+    if(!req.body.nom || typeof req.body.nom !== "string") return res.status(400).json("nom de la categorie non valide")
 
     //verification de la categorie
     const categorie = await Categorie.getOne(req.body.nom)
-    if(categorie) return res.status(400).json("Cette catégorie existe déjà")
+    if(categorie) return res.status(400).json("Ce nom existe déjà")
 
     //validation de l'id
     if(!req.params.id) return res.status(400).json("id non valide")
@@ -65,8 +61,6 @@ module.exports.updateCategorie = async(req, res)=>{
 }
 
 module.exports.deleteCategorie = async(req,res)=>{
-    //validation de l'id
-    if(!req.params.id) return res.status(400).json("id non valide")
 
     //verification de l'exixstence de la categorie
     const categorie = await Categorie.getOne(parseInt(req.params.id))

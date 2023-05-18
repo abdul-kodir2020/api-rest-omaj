@@ -4,7 +4,7 @@ const listeProduits = [
         marque: "Valentino",
         taille: "40/L",
         quantite: 1,
-        prix: "54",
+        prix: 54,
         status: "accepte",
         Categorie_id: 1
     },
@@ -13,7 +13,7 @@ const listeProduits = [
         marque: "Jodhpur",
         taille: "40/L",
         quantite: 1,
-        prix: "57",
+        prix: 57,
         status: "accepte",
         Categorie_id: 1
     },
@@ -22,7 +22,7 @@ const listeProduits = [
         marque: "LEE",
         taille: "36/S",
         quantite: 0,
-        prix: "45",
+        prix: 45,
         status: "en attente",
         Categorie_id: 1
     },
@@ -31,7 +31,7 @@ const listeProduits = [
         marque: "123",
         taille: "36/S",
         quantite: 1,
-        prix: "45",
+        prix: 45,
         status: "accepte",
         Categorie_id: 1
     },
@@ -40,7 +40,7 @@ const listeProduits = [
         marque: "CAROLL",
         taille: "40/L",
         quantite: 1,
-        prix: "35",
+        prix: 35,
         status: "accepte",
         Categorie_id: 2
     },
@@ -49,7 +49,7 @@ const listeProduits = [
         marque: "ELORA",
         taille: "38/M",
         quantite: 1,
-        prix: "42",
+        prix: 42,
         status: "accepte",
         Categorie_id: 2
     },
@@ -58,7 +58,7 @@ const listeProduits = [
         marque: "JARMON",
         taille: "38/M",
         quantite: 1,
-        prix: "50",
+        prix: 50,
         status: "en attente",
         Categorie_id: 2
     },
@@ -67,7 +67,7 @@ const listeProduits = [
         marque: "LEVI'S",
         taille: "34/xs",
         quantite: 0,
-        prix: "38",
+        prix: 38,
         status: "accepte",
         Categorie_id: 2
     },

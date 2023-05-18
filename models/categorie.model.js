@@ -6,7 +6,7 @@ const Categorie = {
     async create(nom){
         try {
             const query = 'INSERT INTO categorie (nom) VALUES ($1) RETURNING *'
-            const values = [nom]
+            const values = [nom.toLowerCase()]
             const categorie = await pool.query(query,values)
             return categorie.rows[0]
         } catch (error) {
@@ -15,6 +15,7 @@ const Categorie = {
         }
     },
 
+    //modele pour la récupération de toutes les catégories
     async getAll(){
         try {
             const query = 'SELECT * FROM categorie'
@@ -26,6 +27,7 @@ const Categorie = {
         }
     },
 
+    //modele pour la récupération d'une catégorie
     async getOne(categorieTag){ //cette fonction accepte un entier pour l'id ou un string pour le nom
         try {
             let query = ''
@@ -43,10 +45,11 @@ const Categorie = {
         }
     },
 
+    
     async edit(id, nom){
         try {
             const query = 'UPDATE categorie SET nom = $1 WHERE id = $2'
-            await pool.query(query, [nom, id])
+            await pool.query(query, [nom.toLowerCase(), id])
             return {id, nom}
         } catch (error) {
             console.log(error)
