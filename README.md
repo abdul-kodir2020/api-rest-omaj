@@ -29,7 +29,7 @@ Environnement technique : Nodejs, Express, postgresql, postman
 2. Ajoutez un fichier .env a la racine du dossier et ajoutez y ce code:
       
       
-       PORT_SERVER = 5000
+        PORT_SERVER = 5000
         DB_NAME = apirestdatabaseomaj
         DB_USER = NOM_UTILISATEUR_POSTGRESQL (remplacez le par votre nom d'utilisateur postgresql)
         DB_PASSWORD = MOT_DE_PASSE_POSTGRESQL (remplacez le par votre mot de passe postgresql)
