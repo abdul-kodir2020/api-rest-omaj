@@ -22,9 +22,9 @@ SImple API CRUD de catalogue produit. Cette API permet de faire :
 2. npm run db-init : pour la création de la base de donnée postgresql, des tables et des données catégorie et produit
 3. npm run start : pour démarré le serveur local 
 
-#Création de données
+# Création de données
 
 Chemin du script pour la création de données : /config/db-init.js . La commande npm run db-init permet de l'executer
 
-#Documentation
+# Documentation
 
