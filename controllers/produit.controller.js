@@ -7,10 +7,10 @@ const schemaAdd = joi.object(
         libelle: joi.string().min(4).required(),
         marque: joi.string().min(4).required(),
         taille: joi.string().min(1).required(),
-        quantite: joi.string().min(1).required(),
-        prix: joi.string().min(1).required(),
+        quantite: joi.number().min(1).required(),
+        prix: joi.number().min(1).required(),
         status: joi.string().min(6).required(),
-        categorie_id: joi.string().min(1).required(),
+        categorie_id: joi.number().min(1).required(),
     }
 )
 
@@ -78,7 +78,7 @@ module.exports.deleteProduit = async(req,res)=>{
     //validation de l'id
     if(!req.params.id) return res.status(400).json("id non valide")
 
-    //verification de l'exixstence de la categorie
+    //verification de l'exixstence du produit
     const produit = await Produit.getOne(parseInt(req.params.id))
     if(!produit) return res.status(400).json("Ce produit n'existe pas")
 
