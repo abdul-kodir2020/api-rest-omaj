@@ -1,7 +1,7 @@
 # api-rest-omaj
 SImple API CRUD de catalogue produit. Cette API permet de faire :
 
-  .De lister des catégories d'articles. 
+  De lister des catégories d'articles.\n 
   D'ajouter ou d'éditer une catégorie / un produit. 
   De supprimer une catégorie / un produit. 
   De mettre à jour une catégorie / un produit. 
