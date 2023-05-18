@@ -11,15 +11,15 @@ SImple API CRUD de catalogue produit. Cette API permet de faire :
   
   De lister les produits disponibles (en stock) en fonction d'un certain nombre de critères : 
   
-      Sa catégorie. Sa marque. 
+   Sa catégorie. Sa marque. 
       
-      Sa taille. 
+   sa taille. 
       
-      Sa quantité (0 ou 1) 
+   Sa quantité (0 ou 1) 
       
-      Son status (Accepté ou En attente) 
+   Son status (Accepté ou En attente) 
       
-      Son prix
+   Son prix
 
 Environnement technique : Nodejs, Express, postgresql, postman
 
