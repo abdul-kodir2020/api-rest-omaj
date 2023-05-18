@@ -111,4 +111,7 @@ Supprimer un produit :
 # Bonus
 
 J'ai ecris un fichier de test unitaire avec les packages de test mocha chai supertest. Le fichier : /test/api.test.js 
-Coupez le serveur et entrez la commande npx mocha
+
+Coupez le serveur et pour l'exécuter entrez la commande :  
+
+     npx mocha
