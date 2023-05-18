@@ -112,6 +112,13 @@ Supprimer un produit :
 
 J'ai ecris un fichier de test unitaire avec les packages de test mocha chai supertest. Le fichier : /test/api.test.js 
 
-Coupez le serveur et pour l'exécuter entrez la commande :  
+Pour l'executer : 
 
-     npx mocha
+1. Femer psql shell et pgadmin
+2. refaite la commande : 
+
+       npm run db-init
+       
+3. Coupez le serveur et entrez la commande :  
+
+       npx mocha
