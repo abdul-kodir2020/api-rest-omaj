@@ -16,7 +16,7 @@ SImple API CRUD de catalogue produit. Cette API permet de faire :
    
  Environnement technique : Nodejs, Express, postgresql, postman
       
-#initialisation en local
+# initialisation en local
 
 1. npm install
 2. npm run db-init : pour la création de la base de donnée postgresql, des tables et des données catégorie et produit
