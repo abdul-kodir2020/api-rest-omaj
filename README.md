@@ -110,4 +110,5 @@ Supprimer un produit :
       
 # Bonus
 
-J'ai ecris un fichier de test unitaire avec les packages de test mosha chai supertest. Le fichier : /test/api.test.js 
+J'ai ecris un fichier de test unitaire avec les packages de test mocha chai supertest. Le fichier : /test/api.test.js 
+Coupez le serveur et entrez la commande npx mocha
