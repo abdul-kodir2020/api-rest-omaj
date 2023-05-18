@@ -105,7 +105,7 @@ Modifier un produit : ( data : libelle, marque, taille, quantite(0 ou 1), prix(e
       
 Supprimer un produit : 
 
-      http://localhost:5000/api/produit/delete/1
+      http://localhost:5000/api/produit/delete/:id
       
       
       
