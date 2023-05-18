@@ -68,3 +68,42 @@ Supprimer une categorie :
       http://localhost:5000/api/categorie/delete/1
       
  ## Les routes pour la table produit en local
+ 
+ Créer un produit : ( data : libelle, marque, taille, quantite(0 ou 1), prix(ex: 50),  status(En attente ou accepte), categorie_id) 
+
+      http://localhost:5000/api/produit/create
+
+Récupérer tous les produits : 
+
+      http://localhost:5000/api/produit/produits
+      
+Récupérer tous les produits d'une marque: 
+
+      http://localhost:5000/api/produit/produits?filtre=marque&value=NOM_DE_LA_MARQUE
+      
+Récupérer tous les produits par taille: 
+
+      http://localhost:5000/api/produit/produits?filtre=taille&value=VALEUR_DE_LA_TAILLE
+      
+Récupérer tous les produits disponibles en stock: 
+
+      http://localhost:5000/api/produit/produits?filtre=stock
+      
+Récupérer tous les produits par status: 
+
+      http://localhost:5000/api/produit/produits?filtre=status&value=STATUS
+      
+Récuperer un produit : 
+
+      http://localhost:5000/api/produit/produit/:id
+      
+Modifier un produit : ( data : libelle, marque, taille, quantite(0 ou 1), prix(ex: 50),  status(En attente ou accepte), categorie_id ) 
+
+      http://localhost:5000/api/produit/update/:id
+      
+Supprimer un produit : 
+
+      http://localhost:5000/api/produit/delete/1
+      
+      
+      
