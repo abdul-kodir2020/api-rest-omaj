@@ -39,7 +39,7 @@ Environnement technique : Nodejs, Express, postgresql, postman
         DB_PORT = 5432     
       
 3. npm run db-init : pour la création de la base de donnée postgresql, des tables et des données catégorie et produit
-4. npm run start : pour démarré le serveur local
+4. npm run start : pour démarrer le serveur local
 
 # Création de données
 
