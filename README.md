@@ -27,8 +27,10 @@ Environnement technique : Nodejs, Express, postgresql, postman
 
 # initialisation en local
 
-1. npm install
-2. Ajoutez un fichier .env a la racine du dossier et ajoutez y ce code:
+1. Installer les dependances : 
+  
+        npm install
+3. Ajoutez un fichier .env a la racine du dossier et ajoutez y ce code:
       
       
         PORT_SERVER = 5000
@@ -38,8 +40,12 @@ Environnement technique : Nodejs, Express, postgresql, postman
         BD_HOST = localhost
         DB_PORT = 5432     
       
-3. npm run db-init : pour la création de la base de donnée postgresql, des tables et des données catégorie et produit
-4. npm run start : pour démarrer le serveur local
+3. Pour la création de la base de donnée postgresql, des tables et des données catégorie et produit : 
+          
+        npm run db-init 
+4. Pour démarrer le serveur local : 
+
+         npm run start
 
 # Création de données
 
