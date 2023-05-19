@@ -88,22 +88,6 @@ Exemple de requête :
       http://localhost:5000/api/produit/produits?categorie=veste&prix=50&quantite=1&status=accepte&marque=Zara&taille=40
       
       
-Récupérer tous les produits d'une marque: 
-
-      http://localhost:5000/api/produit/produits?filtre=marque&value=NOM_DE_LA_MARQUE
-      
-Récupérer tous les produits par taille: 
-
-      http://localhost:5000/api/produit/produits?filtre=taille&value=VALEUR_DE_LA_TAILLE
-      
-Récupérer tous les produits disponibles en stock: 
-
-      http://localhost:5000/api/produit/produits?filtre=stock
-      
-Récupérer tous les produits par status: 
-
-      http://localhost:5000/api/produit/produits?filtre=status&value=STATUS
-      
 Récuperer un produit : 
 
       http://localhost:5000/api/produit/produit/:id
