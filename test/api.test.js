@@ -82,12 +82,13 @@ describe('API Tests', () => {
 
       // test pour les routes de produits
 
-      describe('GET /api/produit/produits', () => {
+      describe('GET /api/produit/produits?categorie=veste', () => {
       it('Doit retourner un tableau de produits', (done) => {
-        request.get('/api/produit/produits')
+        request.get('/api/produit/produits?categorie=veste')
           .expect(200)
           .end((err, res) => {
             expect(res.body).to.be.an('array');
+            console.log(res.body)
             done();
           });
       });
@@ -143,7 +144,7 @@ describe('API Tests', () => {
             .send(produit)
             .expect(200)
             .end((err, res) => {
-                expect(res.body).to.be.an('string');
+                expect(res.body).to.be.an('object');
               done();
             });
         });

@@ -48,9 +48,9 @@ const Categorie = {
 
     async edit(id, nom){
         try {
-            const query = 'UPDATE categorie SET nom = $1 WHERE id = $2'
-            await pool.query(query, [nom.toLowerCase(), id])
-            return {id: id, nom: nom}
+            const query = 'UPDATE categorie SET nom = $1 WHERE id = $2 RETURNING *'
+            const categorie = await pool.query(query, [nom.toLowerCase(), id])
+            return categorie.rows[0]
         } catch (error) {
             console.log(error)
             throw new Error('Erreur lors de la suppression de la catégorie')

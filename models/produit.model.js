@@ -75,6 +75,7 @@ const Produit = {
                 UPDATE produit 
                 SET libelle = $1, marque = $2, taille = $3, quantite = $4, prix = $5, status = $6, categorie_id = $7
                 WHERE id = $8
+                RETURNING *
             `
             const values = [libelle,marque,taille,quantite,prix,status,categorie_id, id]
             const updated = await pool.query(query, values)

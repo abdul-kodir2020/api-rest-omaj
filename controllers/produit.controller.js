@@ -67,8 +67,8 @@ module.exports.updateProduit = async(req, res)=>{
     if(!produitById) return res.status(400).json("Ce produit n'existe pas")
 
     try {
-        await Produit.edit(req.params.id, req.body.libelle,req.body.marque,req.body.taille,parseInt(req.body.quantite),req.body.prix,req.body.status,parseInt(req.body.categorie_id))
-        res.status(200).json("Produit modifié")
+        const produitUpdated = await Produit.edit(req.params.id, req.body.libelle,req.body.marque,req.body.taille,parseInt(req.body.quantite),req.body.prix,req.body.status,parseInt(req.body.categorie_id))
+        res.status(200).json(produitUpdated)
     } catch (error) {
         res.status(400).json(error)
     }
