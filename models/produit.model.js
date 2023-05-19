@@ -16,50 +16,33 @@ const Produit = {
 
     async getAll(tag){//ce parametre est l'objet qui contient les variables passées en parametre de la requete; tag.filter: le filtre (categorie, taille, etc...) et tag.value : la valeur du filtre 
          try {
-            let query = ''
-            let produits = null
+            let query = "SELECT * FROM produit"
 
-            if (!tag.filtre) {//recuperation de tous les produits
+            if (Object.keys(tag).length !== 0) {//ajout des parametres a la requete 
 
-                query = 'SELECT * FROM produit'
-                produits = await pool.query(query)
-                return produits.rows
+                query += " WHERE "
+                let parametres = []
 
-            }else if (tag.filtre.toLowerCase() === 'categorie') {//recuperation des produits d'une categorie (string)
+                for (const key in tag) {
+                    if (Object.hasOwnProperty.call(tag, key)) {
+                        const element = tag[key].toLowerCase();
 
-                const categorie = await Categorie.getOne(tag.value.toLowerCase())//recherche de l'id de la categorie
-                query = 'SELECT * FROM produit WHERE categorie_id = $1'
-                produits = await pool.query(query, [categorie.id])
-                return produits.rows
-
-            }else if (tag.filtre.toLowerCase() === 'marque') {//recuperation des produits d'une marque
-
-                query = 'SELECT * FROM produit WHERE marque = $1'
-
-            }else if (tag.filtre.toLowerCase() === 'taille') {//recuperation des produits d'une taille
-
-                query = 'SELECT * FROM produit WHERE taille = $1'
-
-            }
-            else if (tag.filtre.toLowerCase() === 'prix') {//recuperation des produits d'une taille
-
-                query = 'SELECT * FROM produit WHERE prix <= $1'
-                produits = await pool.query(query, [parseFloat(tag.value)])
-                return produits.rows
-
-            }else if (tag.filtre.toLowerCase() === 'stock') {//par quantite 0 ou 1
-
-                query = 'SELECT * FROM produit WHERE quantite = 1'
-                produits = await pool.query(query)
-                return produits.rows
-
-            }else if (tag.filtre.toLowerCase() === 'status') {//par status
-
-                query = 'SELECT * FROM produit WHERE status = $1'
+                        if (key === 'categorie') {
+                            const categorie = await Categorie.getOne(element.toLowerCase())
+                            parametres.push(key+"_id="+categorie.id) 
+                        }else if (key === 'prix') {
+                            parametres.push(key+"<="+element) 
+                        }else{
+                            parametres.push(key+"='"+element+"'") 
+                        }
+                    }
+                }
+                const params = parametres.join(' AND ')
+                query += params
 
             }
 
-            produits = await pool.query(query, [tag.value.toLowerCase()])
+            const produits = await pool.query(query)
             return produits.rows
 
         } catch (error) {
