@@ -75,9 +75,18 @@ Supprimer une categorie :
 
       http://localhost:5000/api/produit/create
 
-Récupérer tous les produits : 
+Récupérer tous les produits (Vous pouvez preciser le filtre ex: marque=zara ou categorie=veste)
+
+Exemple de requête :
 
       http://localhost:5000/api/produit/produits
+      http://localhost:5000/api/produit/produits?categorie=veste
+      http://localhost:5000/api/produit/produits?categorie=veste&prix=50
+      http://localhost:5000/api/produit/produits?categorie=veste&prix=50&quantite=1
+      http://localhost:5000/api/produit/produits?categorie=veste&prix=50&quantite=1&status=accepte
+      http://localhost:5000/api/produit/produits?categorie=veste&prix=50&quantite=1&status=accepte&marque=Zara
+      http://localhost:5000/api/produit/produits?categorie=veste&prix=50&quantite=1&status=accepte&marque=Zara&taille=40
+      
       
 Récupérer tous les produits d'une marque: 
 
