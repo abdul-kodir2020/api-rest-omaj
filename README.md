@@ -45,7 +45,7 @@ Environnement technique : Nodejs, Express, postgresql, postman
         npm run db-init 
 4. Pour démarrer le serveur local : 
 
-         npm run start
+         npm run dev
 
 # Création de données
 
