@@ -196,3 +196,13 @@ Pour l'executer :
 3. Coupez le serveur et entrez la commande :  
 
        npx mocha
+       
+       
+#Pour aller plus loin
+
+Pour sécuriser l'utilisation de l'api un champ token dans l'en-tête de la rêquete est requis
+      
+      key         value
+      token       ytgjgjsdc54365f4vdf5
+      
+Ce système de token peut être améliorer 
