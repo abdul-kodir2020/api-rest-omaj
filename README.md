@@ -65,10 +65,32 @@ Récupérer toutes les catégories :
       Type de requête : GET
       http://localhost:5000/api/categories
       
+      Cette requête retourne un tableau de catégorie
+      
+      Exemple de résultat : 
+      [ 
+        { id: 1, 
+          nom: 'veste' 
+        }, 
+        { id: 2, 
+          nom: 'robe' 
+        } 
+      ]
+       
 Récuperer une catégorie : 
   
       Type de requête : GET
       http://localhost:5000/api/categories/:id
+      
+      Cette requête retourne une catégorie
+      
+      exemple de résultat : 
+      
+      { 
+        id: 1, 
+        nom: 'veste' 
+      }
+      
       
 Modifier une categorie : ( Proprietés : nom ) 
       
@@ -101,11 +123,53 @@ Exemple de requête :
       http://localhost:5000/api/produits?categorie=veste&prix=50&quantite=1&status=accepte&marque=Zara
       http://localhost:5000/api/produits?categorie=veste&prix=50&quantite=1&status=accepte&marque=Zara&taille=40
       
+      Cette requête retourne un tableau de produits
+      
+      Exemple de résultat : 
+      
+      [
+        {
+          id: 1,
+          libelle: 'veste blazer valentino',
+          marque: 'valentino',
+          taille: '40/l',
+          quantite: 1,
+          prix: 54,
+          status: 'accepte',
+          categorie_id: 1
+        },
+        {
+          id: 2,
+          libelle: 'veste en jean jodhpur',
+          marque: 'jodhpur',
+          taille: '40/l',
+          quantite: 1,
+          prix: 57,
+          status: 'accepte',
+          categorie_id: 1
+        }
+       ]
+      
       
 Récuperer un produit : 
       
       Type de requête : GET
       http://localhost:5000/api/produits/:id
+      
+      Cette requête retourne un objet produit
+      
+      Exemple de résultat : GET http://localhost:5000/api/produits/1
+       {
+          id: 1,
+          libelle: 'veste blazer valentino',
+          marque: 'valentino',
+          taille: '40/l',
+          quantite: 1,
+          prix: 54,
+          status: 'accepte',
+          categorie_id: 1
+        }
+      
       
 Modifier un produit : ( data : libelle, marque, taille, quantite(0 ou 1), prix(ex: 50),  status(En attente ou accepte), categorie_id ) 
       
