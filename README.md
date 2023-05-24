@@ -57,54 +57,65 @@ Chemin du script pour la création de données : /config/db-init.js . La command
 
 Créer une catégorie : ( Proprietés : nom ) 
 
-      http://localhost:5000/api/categorie/create
+      Type de requête : POST
+      http://localhost:5000/api/categories
 
 Récupérer toutes les catégories : 
-
-      http://localhost:5000/api/categorie/categories
+      
+      Type de requête : GET
+      http://localhost:5000/api/categories
       
 Récuperer une catégorie : 
-
-      http://localhost:5000/api/categorie/categorie/:id
+  
+      Type de requête : GET
+      http://localhost:5000/api/categories/:id
       
 Modifier une categorie : ( Proprietés : nom ) 
-
-      http://localhost:5000/api/categorie/update/:id
+      
+      Type de requête : PUT
+      http://localhost:5000/api/categories/:id
       
 Supprimer une categorie : 
-
-      http://localhost:5000/api/categorie/delete/1
+  
+      Type de requête : DELETE
+      http://localhost:5000/api/categories/1
       
  ## Les routes pour la table produit en local
  
  Créer un produit : ( data : libelle, marque, taille, quantite(0 ou 1), prix(ex: 50),  status(En attente ou accepte), categorie_id) 
-
-      http://localhost:5000/api/produit/create
+ 
+      Type de requête : POST
+      http://localhost:5000/api/produits
 
 Récupérer tous les produits (Vous pouvez preciser le filtre ex: marque=zara ou categorie=veste)
 
 Exemple de requête :
 
-      http://localhost:5000/api/produit/produits
-      http://localhost:5000/api/produit/produits?categorie=veste
-      http://localhost:5000/api/produit/produits?categorie=veste&prix=50
-      http://localhost:5000/api/produit/produits?categorie=veste&prix=50&quantite=1
-      http://localhost:5000/api/produit/produits?categorie=veste&prix=50&quantite=1&status=accepte
-      http://localhost:5000/api/produit/produits?categorie=veste&prix=50&quantite=1&status=accepte&marque=Zara
-      http://localhost:5000/api/produit/produits?categorie=veste&prix=50&quantite=1&status=accepte&marque=Zara&taille=40
+    
+      Type de requête : GET
+      http://localhost:5000/api/produits
+      http://localhost:5000/api/produits?categorie=veste
+      http://localhost:5000/api/produits?categorie=veste&prix=50
+      http://localhost:5000/api/produits?categorie=veste&prix=50&quantite=1
+      http://localhost:5000/api/produits?categorie=veste&prix=50&quantite=1&status=accepte
+      http://localhost:5000/api/produits?categorie=veste&prix=50&quantite=1&status=accepte&marque=Zara
+      http://localhost:5000/api/produits?categorie=veste&prix=50&quantite=1&status=accepte&marque=Zara&taille=40
       
       
 Récuperer un produit : 
-
-      http://localhost:5000/api/produit/produit/:id
+      
+      Type de requête : GET
+      http://localhost:5000/api/produits/:id
       
 Modifier un produit : ( data : libelle, marque, taille, quantite(0 ou 1), prix(ex: 50),  status(En attente ou accepte), categorie_id ) 
-
+      
+      Type de requête : PUT
       http://localhost:5000/api/produit/update/:id
       
 Supprimer un produit : 
-
-      http://localhost:5000/api/produit/delete/:id
+      
+      Type de requête : DELETE
+      http://localhost:5000/api/produits/:id
       
       
 # Bonus
