@@ -110,7 +110,7 @@ Récuperer un produit :
 Modifier un produit : ( data : libelle, marque, taille, quantite(0 ou 1), prix(ex: 50),  status(En attente ou accepte), categorie_id ) 
       
       Type de requête : PUT
-      http://localhost:5000/api/produit/update/:id
+      http://localhost:5000/api/produits/:id
       
 Supprimer un produit : 
       
