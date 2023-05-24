@@ -2,14 +2,14 @@ const { createCategorie, getAllCategorie, getOneCategorie, deleteCategorie, upda
 
 const router = require("express").Router()
 
-router.post('/create', createCategorie)
+router.post('/', createCategorie)
 
-router.get('/categories', getAllCategorie)
+router.get('/', getAllCategorie)
 
-router.get('/categorie/:id', getOneCategorie)
+router.get('/:id', getOneCategorie)
 
-router.put('/update/:id', updateCategorie)
+router.put('/:id', updateCategorie)
 
-router.delete('/delete/:id', deleteCategorie)
+router.delete('/:id', deleteCategorie)
 
 module.exports = router

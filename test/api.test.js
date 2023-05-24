@@ -13,11 +13,12 @@ const request = supertest(app);
 
 describe('API Tests', () => {
     // test pour les routes de categorie
-    describe('GET /api/categorie/categories', () => {
+    describe('GET /api/categories', () => {
       it('Doit retourner un tableau de categorie', (done) => {
-        request.get('/api/categorie/categories')
+        request.get('/api/categories')
           .expect(200)
           .end((err, res) => {
+            console.log(res.body)
             expect(res.body).to.be.an('array');
             done();
           });
@@ -26,22 +27,23 @@ describe('API Tests', () => {
 
     describe('GET /api/categorie/categorie/1', () => {
         it('Doit retourner une categorie', (done) => {
-          request.get('/api/categorie/categorie/1')
+          request.get('/api/categories/1')
             .expect(200)
             .end((err, res) => {
+              console.log(res.body)
               expect(res.body).to.be.an('object');
               done();
             });
         });
     });
 
-    describe('POST /api/categorie/create', () => {
+    describe('POST /api/categories', () => {
         it('Doit créer une nouvelle categorie', (done) => {
           const categorie = {
             nom: "montre"
           };
     
-          request.post('/api/categorie/create')
+          request.post('/api/categories')
             .send(categorie)
             .expect(200)
             .end((err, res) => {
@@ -52,13 +54,13 @@ describe('API Tests', () => {
         });
     });
 
-      describe('PUT /api/categorie/update/2', () => {
+      describe('PUT /api/categories/2', () => {
         it('Doit modifier une categorie', (done) => {
           const categorie = {
             nom: "haut"
           };
     
-          request.put('/api/categorie/update/2')
+          request.put('/api/categories/2')
             .send(categorie)
             .expect(200)
             .end((err, res) => {
@@ -69,9 +71,9 @@ describe('API Tests', () => {
         });
       });
 
-      describe('DELETE /api/categorie/delete/2', () => {
+      describe('DELETE /api/categories/2', () => {
         it('Doit supprimer une categorie', (done) => {
-          request.delete('/api/categorie/delete/2')
+          request.delete('/api/categories/2')
             .expect(200)
             .end((err, res) => {
                 expect(res.body).to.be.an('string');
@@ -82,9 +84,9 @@ describe('API Tests', () => {
 
       // test pour les routes de produits
 
-      describe('GET /api/produit/produits?categorie=veste', () => {
+      describe('GET /api/produits?categorie=veste', () => {
       it('Doit retourner un tableau de produits', (done) => {
-        request.get('/api/produit/produits?categorie=veste')
+        request.get('/api/produits?categorie=veste')
           .expect(200)
           .end((err, res) => {
             expect(res.body).to.be.an('array');
@@ -94,9 +96,9 @@ describe('API Tests', () => {
       });
     });
 
-    describe('GET /api/produit/produit/1', () => {
+    describe('GET /api/produits/1', () => {
         it('Doit retourner un produit', (done) => {
-          request.get('/api/produit/produit/1')
+          request.get('/api/produits/1')
             .expect(200)
             .end((err, res) => {
               expect(res.body).to.be.an('object');
@@ -105,7 +107,7 @@ describe('API Tests', () => {
         });
     });
 
-    describe('POST /api/produit/create', () => {
+    describe('POST /api/produits', () => {
         it('Doit créer un nouveau produit', (done) => {
           const produit = {
             libelle: "veste en laine zara",
@@ -117,7 +119,7 @@ describe('API Tests', () => {
             categorie_id: 1
           };
     
-          request.post('/api/produit/create')
+          request.post('/api/produits')
             .send(produit)
             .expect(200)
             .end((err, res) => {
@@ -128,7 +130,7 @@ describe('API Tests', () => {
         });
     });
 
-    describe('PUT /api/produit/update/2', () => {
+    describe('PUT /api/produits/2', () => {
         it('Doit modifier un produit', (done) => {
             const produit = {
                 libelle: "veste rose en jean zara",
@@ -140,7 +142,7 @@ describe('API Tests', () => {
                 categorie_id: 1
               };
     
-          request.put('/api/produit/update/2')
+          request.put('/api/produits/2')
             .send(produit)
             .expect(200)
             .end((err, res) => {
@@ -152,7 +154,7 @@ describe('API Tests', () => {
 
     describe('DELETE /api/produit/delete/5', () => {
         it('Doit supprimer un produit', (done) => {
-          request.delete('/api/produit/delete/5')
+          request.delete('/api/produits/5')
             .expect(200)
             .end((err, res) => {
                 expect(res.body).to.be.an('string');

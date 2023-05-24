@@ -25,8 +25,8 @@ app.get('/',(req,res)=>{
     `)
 })
 
-app.use('/api/categorie',require("./routes/categorie.route"))
-app.use('/api/produit',require("./routes/produit.route"))
+app.use('/api/categories',require("./routes/categorie.route"))
+app.use('/api/produits',require("./routes/produit.route"))
 
 app.listen(process.env.PORT_SERVER || 5000,()=>{
     console.log("Serveur démarré")
