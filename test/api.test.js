@@ -16,6 +16,7 @@ describe('API Tests', () => {
     describe('GET /api/categories', () => {
       it('Doit retourner un tableau de categorie', (done) => {
         request.get('/api/categories')
+          .set('token', 'ytgjgjsdc54365f4vdf5')
           .expect(200)
           .end((err, res) => {
             console.log(res.body)
@@ -28,6 +29,7 @@ describe('API Tests', () => {
     describe('GET /api/categorie/categorie/1', () => {
         it('Doit retourner une categorie', (done) => {
           request.get('/api/categories/1')
+          .set('token', 'ytgjgjsdc54365f4vdf5')
             .expect(200)
             .end((err, res) => {
               console.log(res.body)
@@ -44,6 +46,7 @@ describe('API Tests', () => {
           };
     
           request.post('/api/categories')
+          .set('token', 'ytgjgjsdc54365f4vdf5')
             .send(categorie)
             .expect(200)
             .end((err, res) => {
@@ -61,6 +64,7 @@ describe('API Tests', () => {
           };
     
           request.put('/api/categories/2')
+          .set('token', 'ytgjgjsdc54365f4vdf5')
             .send(categorie)
             .expect(200)
             .end((err, res) => {
@@ -74,6 +78,7 @@ describe('API Tests', () => {
       describe('DELETE /api/categories/2', () => {
         it('Doit supprimer une categorie', (done) => {
           request.delete('/api/categories/2')
+          .set('token', 'ytgjgjsdc54365f4vdf5')
             .expect(200)
             .end((err, res) => {
                 expect(res.body).to.be.an('string');
@@ -87,6 +92,7 @@ describe('API Tests', () => {
       describe('GET /api/produits?categorie=veste', () => {
       it('Doit retourner un tableau de produits', (done) => {
         request.get('/api/produits?categorie=veste')
+        .set('token', 'ytgjgjsdc54365f4vdf5')
           .expect(200)
           .end((err, res) => {
             expect(res.body).to.be.an('array');
@@ -99,6 +105,7 @@ describe('API Tests', () => {
     describe('GET /api/produits/1', () => {
         it('Doit retourner un produit', (done) => {
           request.get('/api/produits/1')
+          .set('token', 'ytgjgjsdc54365f4vdf5')
             .expect(200)
             .end((err, res) => {
               expect(res.body).to.be.an('object');
@@ -120,6 +127,7 @@ describe('API Tests', () => {
           };
     
           request.post('/api/produits')
+          .set('token', 'ytgjgjsdc54365f4vdf5')
             .send(produit)
             .expect(200)
             .end((err, res) => {
@@ -143,6 +151,7 @@ describe('API Tests', () => {
               };
     
           request.put('/api/produits/2')
+          .set('token', 'ytgjgjsdc54365f4vdf5')
             .send(produit)
             .expect(200)
             .end((err, res) => {
@@ -155,6 +164,7 @@ describe('API Tests', () => {
     describe('DELETE /api/produit/delete/5', () => {
         it('Doit supprimer un produit', (done) => {
           request.delete('/api/produits/5')
+          .set('token', 'ytgjgjsdc54365f4vdf5')
             .expect(200)
             .end((err, res) => {
                 expect(res.body).to.be.an('string');

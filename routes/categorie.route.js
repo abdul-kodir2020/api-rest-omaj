@@ -1,15 +1,16 @@
 const { createCategorie, getAllCategorie, getOneCategorie, deleteCategorie, updateCategorie } = require("../controllers/categorie.controller")
+const authToken = require("../middlewares/token.middleware")
 
 const router = require("express").Router()
 
-router.post('/', createCategorie)
+router.post('/', authToken,createCategorie)
 
-router.get('/', getAllCategorie)
+router.get('/',authToken, getAllCategorie)
 
-router.get('/:id', getOneCategorie)
+router.get('/:id', authToken, getOneCategorie)
 
-router.put('/:id', updateCategorie)
+router.put('/:id', authToken, updateCategorie)
 
-router.delete('/:id', deleteCategorie)
+router.delete('/:id', authToken, deleteCategorie)
 
 module.exports = router
