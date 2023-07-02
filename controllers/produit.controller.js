@@ -10,6 +10,7 @@ const schemaAdd = joi.object(
         quantite: joi.number().min(1).required(),
         prix: joi.number().min(1).required(),
         status: joi.string().min(6).required(),
+        lien_image: joi.string().required(),
         categorie_id: joi.number().min(1).required(),
     }
 )
@@ -25,7 +26,7 @@ module.exports.createProduit = async (req,res)=>{
 
     //creation du produit
     try {
-        const produitCreated = await Produit.create(req.body.libelle,req.body.marque,req.body.taille,parseInt(req.body.quantite),req.body.prix,req.body.status,parseInt(req.body.categorie_id))
+        const produitCreated = await Produit.create(req.body.libelle,req.body.marque,req.body.taille,parseInt(req.body.quantite),req.body.prix,req.body.status,req.body.lien_image,parseInt(req.body.categorie_id))
         res.status(200).json(produitCreated)
     } catch (error) {
         res.status(400).json(error)
@@ -67,7 +68,7 @@ module.exports.updateProduit = async(req, res)=>{
     if(!produitById) return res.status(400).json("Ce produit n'existe pas")
 
     try {
-        const produitUpdated = await Produit.edit(req.params.id, req.body.libelle,req.body.marque,req.body.taille,parseInt(req.body.quantite),req.body.prix,req.body.status,parseInt(req.body.categorie_id))
+        const produitUpdated = await Produit.edit(req.params.id, req.body.libelle,req.body.marque,req.body.taille,parseInt(req.body.quantite),req.body.prix,req.body.status,req.body.lien_image,parseInt(req.body.categorie_id))
         res.status(200).json(produitUpdated)
     } catch (error) {
         res.status(400).json(error)

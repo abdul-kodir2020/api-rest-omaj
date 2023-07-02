@@ -22,6 +22,8 @@ async function createDatabase() {
         client = await pool.connect()// conection à la base de données
       });
 
+      client = await pool.connect()
+
       //table categorie
       await client.query(`CREATE TABLE categorie (
         id SERIAL PRIMARY KEY,
@@ -37,6 +39,7 @@ async function createDatabase() {
         quantite INT DEFAULT 1,
         prix FLOAT,
         status VARCHAR(20) CHECK (status IN ('accepte', 'en attente')),
+        lien_image TEXT NOT NULL,
         categorie_id INT NOT NULL,
         FOREIGN KEY (categorie_id) REFERENCES categorie (id) ON DELETE CASCADE ON UPDATE CASCADE
       )`)
@@ -44,10 +47,11 @@ async function createDatabase() {
       //insertion de categories
       await Categorie.create("Veste")
       await Categorie.create("Robe")
+      await Categorie.create("Pantalon")
 
       //insertion de produits
       for (const produit of listeProduits) {
-        await Produit.create(produit.libelle,produit.marque,produit.taille,produit.quantite,produit.prix,produit.status,produit.Categorie_id)
+        await Produit.create(produit.libelle,produit.marque,produit.taille,produit.quantite,produit.prix,produit.status,produit.lien_image,produit.Categorie_id)
       }
 
       console.log('Base de données créée avec succès.');

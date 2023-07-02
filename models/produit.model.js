@@ -2,10 +2,10 @@ const { pool } = require("../config/db");
 const Categorie = require("./categorie.model");
 
 const Produit = {
-    async create(libelle,marque,taille,quantite,prix,status,categorie_id){
+    async create(libelle,marque,taille,quantite,prix,status,lien_image,categorie_id){
         try {
-            const query = 'INSERT INTO produit (libelle,marque,taille,quantite,prix,status,categorie_id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *'
-            const values = [libelle.toLowerCase(),marque.toLowerCase(),taille.toLowerCase(),quantite,prix,status.toLowerCase(),categorie_id]
+            const query = 'INSERT INTO produit (libelle,marque,taille,quantite,prix,status,lien_image,categorie_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *'
+            const values = [libelle.toLowerCase(),marque.toLowerCase(),taille.toLowerCase(),quantite,prix,status.toLowerCase(),lien_image,categorie_id]
             const resultat = await pool.query(query, values)
             return resultat.rows[0]
         } catch (error) {
@@ -69,15 +69,15 @@ const Produit = {
         }
     },
 
-    async edit(id, libelle,marque,taille,quantite,prix,status,categorie_id){
+    async edit(id, libelle,marque,taille,quantite,prix,status,lien_image,categorie_id){
         try {
             const query = `
                 UPDATE produit 
-                SET libelle = $1, marque = $2, taille = $3, quantite = $4, prix = $5, status = $6, categorie_id = $7
+                SET libelle = $1, marque = $2, taille = $3, quantite = $4, prix = $5, status = $6,lien_image = $7, categorie_id = $8
                 WHERE id = $8
                 RETURNING *
             `
-            const values = [libelle,marque,taille,quantite,prix,status,categorie_id, id]
+            const values = [libelle,marque,taille,quantite,prix,status,lien_image,categorie_id, id]
             const updated = await pool.query(query, values)
             return updated.rows[0]
         } catch (error) {
